@@ -3,6 +3,7 @@ import "./register.css";
 import { useState } from "react";
 import LoginImage from "./assets/login.jpeg";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Register() {
   const [register, setRegister] = useState({
@@ -37,7 +38,12 @@ export default function Register() {
     <>
       <div className="formContact">
         <h1>Register</h1>
-        <div className="form">
+        <motion.div
+          className="form"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ ease: "easeOut", duration: 0.6 }}
+        >
           <form onSubmit={handleSubmit}>
             <div className="info">
               <input
@@ -90,11 +96,17 @@ export default function Register() {
               </Link>
               Now
             </p>
-            <button id="button" type="submit" value="Send">
-              <p>Sign In</p>
-            </button>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ ease: "easeOut", duration: 0.6, delay: 0.1 }}
+            >
+              <button id="button" type="submit" value="Send">
+                <p>Sign In</p>
+              </button>
+            </motion.div>
           </form>
-        </div>
+        </motion.div>
       </div>
       <div className="image">
         <img id="large" src={LoginImage} alt="" />

@@ -3,6 +3,7 @@ import "./login.css";
 import { useState } from "react";
 import LoginImage from "./assets/login.jpeg";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Login() {
   const [inputs, setInputs] = useState({ email: "", password: "" });
@@ -32,7 +33,12 @@ export default function Login() {
     <>
       <div className="formContact">
         <h1>Login</h1>
-        <div className="form">
+        <motion.div
+          className="form"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ ease: "easeOut", duration: 0.6 }}
+        >
           <form onSubmit={handleSubmit}>
             <div className="info">
               <input
@@ -71,11 +77,17 @@ export default function Login() {
               </Link>
               Now
             </p>
-            <button id="button" type="submit" value="Send">
-              <p>Log In</p>
-            </button>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ ease: "easeOut", duration: 0.6, delay: 0.1 }}
+            >
+              <button id="button" type="submit" value="Send">
+                <p>Log In</p>
+              </button>
+            </motion.div>
           </form>
-        </div>
+        </motion.div>
         <div className="image">
           <img src={Image} alt="" />
         </div>
