@@ -1,0 +1,90 @@
+.formContact {
+  padding: 0px 90px 90px 90px;
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat;
+  margin-top: 100px;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formContact h1 {
+  font-size: 40px;
+}
+
+.formInput {
+  font-family: Montserrat;
+  border: none;
+  border-bottom: 1px solid;
+  height: 40px;
+  width: 280px;
+}
+
+button {
+  font-family: Montserrat;
+  border: 1px solid;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  height: 40px;
+  width: 280px;
+  background-color: #7f867b;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .formContact {
+    display: flex;
+  }
+
+  .form {
+    width: 400px;
+  }
+
+  .formContact h1 {
+    font-size: 40px;
+  }
+
+  .title {
+    padding-top: 130px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form {
+    width: 900px;
+  }
+
+  .title h1 {
+    font-size: 80px;
+    font-weight: 100;
+  }
+
+  .title {
+    margin-left: 250px;
+    margin-left: 150px;
+  }
+
+  .formContact {
+    margin-left: 250px;
+    width: 1000px;
+    padding: 0px;
+    justify-content: space-between;
+  }
+
+  #name,
+  #mail {
+    width: 270px;
+    margin-right: 20px;
+  }
+
+  #password{
+    width: 580px;
+  }
+
+  #passwordCheck{
+    width: 580px;
+  }
+}
