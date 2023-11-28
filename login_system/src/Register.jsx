@@ -4,6 +4,7 @@ import { useState } from "react";
 import LoginImage from "./assets/login.jpeg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
 
 export default function Register() {
   const [register, setRegister] = useState({
@@ -24,13 +25,29 @@ export default function Register() {
       body: JSON.stringify(register),
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(async (data) => {
         console.log(data);
         if (data.status == "Bad Request") {
-          alert(data.message);
+          await Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "User already exists",
+            showConfirmButton: false,
+            timer: 2000,
+            width: "100 px",
+            position: "center",
+          });
           return;
         }
-        alert(data.message);
+        await Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "The registration succeeded",
+          showConfirmButton: false,
+          timer: 2000,
+          width: "100px",
+          position: "center",
+        });
         window.location.href = "/";
       });
   };

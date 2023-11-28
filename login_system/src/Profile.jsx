@@ -3,6 +3,7 @@ import { Navigate, useLoaderData } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import "./profile.css";
 import LoginImage from "./assets/login.jpeg";
+import Swal from "sweetalert2";
 
 export async function profileData() {
   const res = await fetch("http://localhost:3000/profile", {
@@ -19,10 +20,18 @@ export default function Profile() {
       credentials: "include",
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(async (data) => {
         console.log(data);
         if (data.message == "Disconnected") {
-          alert(data.message);
+          await Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: data.message,
+            showConfirmButton: false,
+            timer: 2000,
+            width: "100 px",
+            position: "center",
+          });
           window.location.href = "/";
         }
       });

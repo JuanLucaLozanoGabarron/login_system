@@ -4,6 +4,7 @@ import { useState } from "react";
 import LoginImage from "./assets/login.jpeg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
 
 export default function Login() {
   const [inputs, setInputs] = useState({ email: "", password: "" });
@@ -19,13 +20,29 @@ export default function Login() {
       body: JSON.stringify(inputs),
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(async (data) => {
         if (data.status == "Bad Request") {
-          alert(data.message);
+          await Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: data.message,
+            showConfirmButton: false,
+            timer: 2000,
+            width: "100 px",
+            position: "center",
+          });
           return;
         }
         console.log(data);
-        alert(data.message);
+        await Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: data.message,
+          showConfirmButton: false,
+          timer: 2000,
+          width: "100 px",
+          position: "center",
+        });
         window.location.href = "/profile";
       });
   };
