@@ -28,7 +28,7 @@ export default function Login() {
             title: data.message,
             showConfirmButton: false,
             timer: 2000,
-            width: "100 px",
+            width: "100px",
             position: "center",
           });
           return;
@@ -40,7 +40,7 @@ export default function Login() {
           title: data.message,
           showConfirmButton: false,
           timer: 2000,
-          width: "100 px",
+          width: "100px",
           position: "center",
         });
         window.location.href = "/profile";

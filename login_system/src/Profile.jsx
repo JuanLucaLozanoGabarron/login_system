@@ -29,7 +29,7 @@ export default function Profile() {
             title: data.message,
             showConfirmButton: false,
             timer: 2000,
-            width: "100 px",
+            width: "100px",
             position: "center",
           });
           window.location.href = "/";
