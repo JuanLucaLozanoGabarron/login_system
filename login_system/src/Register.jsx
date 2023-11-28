@@ -96,15 +96,16 @@ export default function Register() {
               </Link>
               Now
             </p>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ ease: "easeOut", duration: 0.6, delay: 0.1 }}
-            >
-              <button id="button" type="submit" value="Send">
+
+            <button id="button" type="submit" value="Send">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ ease: "easeOut", duration: 0.6, delay: 0.1 }}
+              >
                 <p>Sign In</p>
-              </button>
-            </motion.div>
+              </motion.div>
+            </button>
           </form>
         </motion.div>
       </div>
