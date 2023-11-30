@@ -1,9 +1,9 @@
 # Login System
 
 I'd like to introduce you to my login system prototype.
-React.js for a responsive frontend, Express for a robust backend, and Passport.js for secure middleware.
+React.js for a responsive frontend, Express for a robust backend.
 
-Users can log in using email/password or Google, and security and convenience are our top priorities.
+Users can log in using email/password, and security and convenience are our top priorities.
 
 This dynamic prototype creates the basis for continuous improvement and future projects.
 
