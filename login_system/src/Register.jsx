@@ -16,7 +16,7 @@ export default function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:3000/register", {
+    fetch("http://localhost:3001/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +34,6 @@ export default function Register() {
             title: "User already exists",
             showConfirmButton: false,
             timer: 2000,
-            width: "100px",
             position: "center",
           });
           return;
@@ -45,7 +44,6 @@ export default function Register() {
           title: "The registration succeeded",
           showConfirmButton: false,
           timer: 2000,
-          width: "100px",
           position: "center",
         });
         window.location.href = "/";

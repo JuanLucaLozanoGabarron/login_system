@@ -11,7 +11,7 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("click");
-    fetch("http://localhost:3000/login", {
+    fetch("http://localhost:3001/login", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -28,7 +28,6 @@ export default function Login() {
             title: data.message,
             showConfirmButton: false,
             timer: 2000,
-            width: "100px",
             position: "center",
           });
           return;
@@ -40,7 +39,6 @@ export default function Login() {
           title: data.message,
           showConfirmButton: false,
           timer: 2000,
-          width: "100px",
           position: "center",
         });
         window.location.href = "/profile";

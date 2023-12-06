@@ -6,7 +6,7 @@ import LoginImage from "./assets/login.jpeg";
 import Swal from "sweetalert2";
 
 export async function profileData() {
-  const res = await fetch("http://localhost:3000/profile", {
+  const res = await fetch("http://localhost:3001/profile", {
     credentials: "include",
   });
 
@@ -16,7 +16,7 @@ export default function Profile() {
   const [cookies, setCookie] = useCookies(["token"]);
   const userData = useLoaderData();
   const logout = () => {
-    fetch("http://localhost:3000/logout", {
+    fetch("http://localhost:3001/logout", {
       credentials: "include",
     })
       .then((res) => res.json())
@@ -29,7 +29,6 @@ export default function Profile() {
             title: data.message,
             showConfirmButton: false,
             timer: 2000,
-            width: "100px",
             position: "center",
           });
           window.location.href = "/";
