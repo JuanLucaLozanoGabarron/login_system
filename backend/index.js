@@ -12,7 +12,7 @@ const { jwtDecode } = require("jwt-decode");
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://login-system-0blr.onrender.com/",
+    origin: "https://login-system-0blr.onrender.com/register",
     credentials: true,
   })
 );
