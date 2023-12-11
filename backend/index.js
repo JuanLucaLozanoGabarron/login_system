@@ -79,8 +79,6 @@ app.post("/login", async (req, res) => {
       (user) => user.email == req.body.email
     );
 
-    console.log("working");
-
     if (!checkExistingUser) {
       res.status(401).send({
         status: "Bad Request",
@@ -89,13 +87,10 @@ app.post("/login", async (req, res) => {
       return;
     }
 
-    console.log("working");
-
     const checkPassword = await bcrypt.compare(
       req.body.password,
       checkExistingUser.password
     );
-    console.log("working");
 
     if (!checkPassword) {
       res.status(401).send({
@@ -104,8 +99,6 @@ app.post("/login", async (req, res) => {
       });
       return;
     }
-
-    console.log("working");
 
     const token = jwt.sign(checkExistingUser, process.env.SECRET, {
       expiresIn: "1d",
