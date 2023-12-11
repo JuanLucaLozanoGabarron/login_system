@@ -105,6 +105,7 @@ app.post("/login", async (req, res) => {
     res.cookie("token", token, {
       maxAge: 24 * 60 * 60 * 100,
       httpOnly: true,
+      sameSite: "none",
     });
     res.status(200).json({ status: "Connected", message: "Connected !" });
   } catch (error) {
