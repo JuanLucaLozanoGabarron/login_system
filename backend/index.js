@@ -114,8 +114,8 @@ app.post("/login", async (req, res) => {
     console.log(token);
     res.cookie("token", token, {
       maxAge: 24 * 60 * 60 * 100,
-      httpOnly: true,
       sameSite: "none",
+      secure: true,
     });
     res.status(200).json({ status: "Connected", message: "Connected !" });
   } catch (error) {
@@ -157,7 +157,6 @@ app.get("/profile", verifyToken, (req, res) => {
 app.get("/logout", (req, res) => {
   res.cookie("token", "token", {
     maxAge: 0,
-    httpOnly: true,
   });
 
   res.status(200).json({ message: "Disconnected" });
