@@ -22,7 +22,7 @@ const users = [];
 
 app.post("/register", async (req, res) => {
   //Check for empty fields
-  if (!req.body.email || !req.body.password) {
+  if (!req.body.email || !req.body.password || !req.body.username) {
     res.status(401).send({
       status: "Bad Request",
       message: "Some fields are missing: username, email, password",
@@ -78,6 +78,8 @@ app.post("/login", async (req, res) => {
       (user) => user.email == req.body.email
     );
 
+    console.log("working");
+
     if (!checkExistingUser) {
       res.status(401).send({
         status: "Bad Request",
@@ -86,10 +88,13 @@ app.post("/login", async (req, res) => {
       return;
     }
 
+    console.log("working");
+
     const checkPassword = await bcrypt.compare(
       req.body.password,
       checkExistingUser.password
     );
+    console.log("working");
 
     if (!checkPassword) {
       res.status(401).send({
@@ -99,9 +104,13 @@ app.post("/login", async (req, res) => {
       return;
     }
 
+    console.log("working");
+
     const token = jwt.sign(checkExistingUser, process.env.SECRET, {
       expiresIn: "1d",
     });
+    console.log("working");
+    console.log(token);
     res.cookie("token", token, {
       maxAge: 24 * 60 * 60 * 100,
       httpOnly: true,
