@@ -8,7 +8,8 @@ const jwt = require("jsonwebtoken");
 const { v4: uuidv4 } = require("uuid");
 const cookieParser = require("cookie-parser");
 const { jwtDecode } = require("jwt-decode");
-
+console.log(process.env.PORT);
+console.log(process.env.SECRET);
 app.use(express.json());
 app.use(
   cors({
