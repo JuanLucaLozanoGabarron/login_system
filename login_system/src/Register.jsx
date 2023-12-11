@@ -16,7 +16,7 @@ export default function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:3001/register", {
+    fetch("https://login-api-ubpf.onrender.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

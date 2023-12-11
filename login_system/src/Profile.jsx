@@ -6,7 +6,7 @@ import LoginImage from "./assets/login.jpeg";
 import Swal from "sweetalert2";
 
 export async function profileData() {
-  const res = await fetch("http://localhost:3001/profile", {
+  const res = await fetch("https://login-api-ubpf.onrender.com/profile", {
     credentials: "include",
   });
 
@@ -16,7 +16,7 @@ export default function Profile() {
   const [cookies, setCookie] = useCookies(["token"]);
   const userData = useLoaderData();
   const logout = () => {
-    fetch("http://localhost:3001/logout", {
+    fetch("https://login-api-ubpf.onrender.com/logout", {
       credentials: "include",
     })
       .then((res) => res.json())
