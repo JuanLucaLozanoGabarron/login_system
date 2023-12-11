@@ -23,7 +23,7 @@ const users = [];
 
 app.post("/register", async (req, res) => {
   //Check for empty fields
-  if (!req.body.email || !req.body.password || !req.body.username) {
+  if (!req.body.email || !req.body.password || !req.body.name) {
     res.status(401).send({
       status: "Bad Request",
       message: "Some fields are missing: username, email, password",
