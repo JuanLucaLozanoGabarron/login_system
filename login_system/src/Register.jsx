@@ -31,7 +31,7 @@ export default function Register() {
           await Swal.fire({
             position: "top-end",
             icon: "error",
-            title: "User already exists",
+            title: data.message,
             showConfirmButton: false,
             timer: 2000,
             position: "center",
